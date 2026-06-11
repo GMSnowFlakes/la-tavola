@@ -152,10 +152,10 @@ export default function Home() {
             </div>
           </div>
 
-          <button onClick={prev} className="absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center border border-white/20 hover:border-gold bg-dark-100 transition-all duration-200 z-10">
+          <button onClick={prev} aria-label="Previous dish" className="absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center border border-white/20 hover:border-gold bg-dark-100 transition-all duration-200 z-10">
             <ChevronLeft size={18} style={{ color: GOLD }} />
           </button>
-          <button onClick={next} className="absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center border border-white/20 hover:border-gold bg-dark-100 transition-all duration-200 z-10">
+          <button onClick={next} aria-label="Next dish" className="absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center border border-white/20 hover:border-gold bg-dark-100 transition-all duration-200 z-10">
             <ChevronRight size={18} style={{ color: GOLD }} />
           </button>
         </div>
@@ -210,7 +210,7 @@ export default function Home() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
           {gallery.map((src, i) => (
             <div key={i} className="overflow-hidden aspect-square">
-              <img src={src} alt="" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 cursor-pointer" />
+              <img src={src} alt={`La Tavola gallery image ${i + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 cursor-pointer" />
             </div>
           ))}
         </div>
@@ -242,8 +242,8 @@ export default function Home() {
           </div>
 
           <div className="flex justify-center gap-2 mt-10">
-            {reviews.map((_, i) => (
-              <button key={i} onClick={() => setReviewIdx(i)} className="w-2 h-2 rounded-full transition-all duration-200" style={{ background: i === reviewIdx ? GOLD : '#444' }} />
+            {reviews.map((r, i) => (
+              <button key={i} onClick={() => setReviewIdx(i)} aria-label={`View review by ${r.name}`} className="w-2 h-2 rounded-full transition-all duration-200" style={{ background: i === reviewIdx ? GOLD : '#444' }} />
             ))}
           </div>
         </div>
