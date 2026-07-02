@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
@@ -9,7 +9,7 @@ import Admin from './pages/Admin'
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div style={{ background: '#0D0D0D', minHeight: '100vh' }}>
         <Routes>
           <Route path="/admin" element={<Admin />} />
@@ -19,6 +19,6 @@ export default function App() {
           <Route path="/contact" element={<><Navbar /><Contact /><Footer /></>} />
         </Routes>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
